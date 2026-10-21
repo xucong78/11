@@ -2,6 +2,12 @@
 
 面向 AI / GPT 科普与交流账号的图文创作网页。从一个具体选题开始，制作可编辑、可下载的知识卡片。
 
+## 达人带货商务 SOP 与本地工具
+
+新增食品商家商务通用模板：**[下载达人商务工具包](https://github.com/xucong78/11/raw/refs/heads/main/downloads/creator-bd-starter.zip)**。包含 SOP 阅读版、8页 Excel 台账和可本地打开的跟进网页。详细介绍见 [tools/creator-bd](tools/creator-bd/)。不含公司真实数据。
+
+## AI 图文工作室
+
 **Windows 用户：[点击下载免安装版（约 34 MB）](https://github.com/xucong78/11/raw/refs/heads/main/downloads/zhiye-windows-x64.zip)**
 
 下载后完整解压，打开「知页」文件夹，双击 **启动知页.bat**。安装包也可以在本仓库的 [downloads 文件夹](downloads/) 找到；无需安装 Node.js 或 npm。

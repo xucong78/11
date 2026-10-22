@@ -1,0 +1,13 @@
+{
+  "name": "fenbd-cloud-dashboard",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24.5.0" },
+  "scripts": {
+    "start": "node --use-env-proxy --env-file-if-exists=.env server/server.mjs",
+    "dev": "node --watch --use-env-proxy --env-file-if-exists=.env server/server.mjs",
+    "test": "node --test server/*.test.mjs tests/sync-race.test.mjs",
+    "test:browser": "node --test tests/browser-sync.test.mjs"
+  }
+}

@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://render.com/schema/render.yaml.json
+# Personal workspace: one Node service, one persistent SQLite disk.
+# Review the web-service and disk charges in Render before creating resources.
+services:
+  - type: web
+    name: fenbd-dashboard
+    runtime: node
+    branch: main
+    rootDir: apps/merchant-dashboard
+    region: singapore
+    plan: starter
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/health
+    disk:
+      name: fenbd-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: "24.22.0"
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: /var/data/fenbd
+      - key: DASHBOARD_PASSWORD
+        generateValue: true

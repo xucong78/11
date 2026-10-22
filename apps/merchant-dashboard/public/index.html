@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#244d3b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="粉商小本">
+  <meta name="description" content="达人带货商务的合作、寄样和发布跟进工作台。">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="/styles.css">
+  <title>粉商小本 · 达人商务仪表盘</title>
+</head>
+<body>
+  <div id="loading-screen" class="loading-screen"><span class="brand-mark">≋</span><strong>粉商小本</strong><p>正在连接你的工作区…</p></div>
+  <section id="login-screen" class="login-screen hidden" aria-label="登录工作台">
+    <div class="login-card">
+      <div class="login-brand"><span class="brand-mark">≋</span><span>粉商小本<small>CREATOR BD WORKSPACE</small></span></div>
+      <div class="login-art" aria-hidden="true"><span>一项合作</span><i>↗</i><span>一个清楚的下一步</span><b>✳</b></div>
+      <p class="login-eyebrow">让每一次跟进，都有着落</p><h1>欢迎回到<br>你的商务工作台。</h1>
+      <p class="login-subtitle">在 iPhone 和电脑登录同一个工作区，合作记录会保存到同一份云端台账。</p>
+      <form id="login-form" class="login-form">
+        <label class="field"><span>工作区密码</span><input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="输入工作区密码" required></label>
+        <p id="login-error" class="form-error hidden" role="alert"></p>
+        <button id="login-submit" class="button primary" type="submit">进入工作台 <span>↗</span></button>
+      </form>
+      <p class="login-footnote">密码由工作台管理员提供。首次部署后，可在托管平台的 <code>DASHBOARD_PASSWORD</code> 环境变量中查看。请勿在聊天中发送密码。</p>
+    </div>
+  </section>
+  <div id="app-shell" class="app-shell hidden">
+    <aside class="sidebar">
+      <button class="brand" data-view="today"><span class="brand-mark">≋</span><span class="brand-copy">粉商小本<small>CREATOR BD WORKSPACE</small></span></button>
+      <p class="side-eyebrow">每项合作，都向前一步</p>
+      <nav class="desktop-nav" aria-label="桌面导航"></nav>
+      <div class="sidebar-bottom"><span>✳</span><p>把过程记清楚，<br>让好合作持续发生。</p><small>达人商务 · 云同步工作台</small></div>
+    </aside>
+    <main class="shell-main">
+      <header class="topbar"><div class="mobile-brand"><span class="brand-mark">≋</span><span>粉商小本</span></div><p class="desktop-breadcrumb">我的工作区 <span>／</span> <b id="breadcrumb-name">今日</b></p><button id="sync-button" class="sync-button" aria-label="查看同步状态"><span class="sync-dot"></span><span id="sync-label">连接中</span></button></header>
+      <div class="content">
+        <div id="sync-banner" class="sync-banner hidden" role="status"></div>
+        <div id="demo-banner" class="demo-banner hidden"><span>演示模式 · 这些记录不代表真实合作或业绩</span><button id="clear-demo">清空演示</button></div>
+        <section class="page-heading"><div><p class="eyebrow" id="page-eyebrow"></p><h1 id="page-title"></h1><p id="page-description"></p></div><button id="new-record-button" class="button primary">＋ 新建合作</button></section>
+        <div id="page"></div>
+        <p class="page-footnote">手工录入的合作台账 · 未接入抖音后台订单 · 复盘与财务结算分别核对</p>
+      </div>
+      <nav class="bottom-nav" aria-label="手机导航"></nav>
+    </main>
+  </div>
+  <dialog id="record-dialog" class="modal-dialog">
+    <form id="record-form">
+      <header class="modal-head"><div><span class="eyebrow">合作记录</span><h2 id="record-title">新建合作</h2></div><button type="button" data-close="record-dialog" class="close-button" aria-label="关闭合作编辑">×</button></header>
+      <div class="modal-body"><div class="form-grid">
+        <label class="field"><span>达人名称 *</span><input name="creator" maxlength="60" required placeholder="填写达人昵称"></label>
+        <label class="field"><span>负责人 *</span><input name="owner" maxlength="30" required placeholder="谁负责这项合作"></label>
+        <label class="field"><span>内容方向</span><select name="category"><option>美食测评</option><option>速食开箱</option><option>居家吃播</option><option>职场便当</option><option>生活好物</option><option>其他</option></select></label>
+        <label class="field"><span>合作状态</span><select name="stage" id="stage-select"></select></label>
+        <label class="field full"><span>达人主页 / 联系记录</span><input name="contact" maxlength="300" placeholder="链接或内部记录位置，不填写账号密码"></label>
+        <label class="field"><span>合作 SKU</span><input name="sku" maxlength="80" placeholder="规格、口味、件数"></label>
+        <label class="field"><span>合作方式</span><select name="dealType"><option>待协商</option><option>纯佣合作</option><option>寄样试吃后协商</option><option>固定费＋佣金</option><option>其他</option></select></label>
+        <label class="field"><span>下次跟进日期 *</span><input name="dueDate" type="date" required></label>
+        <label class="field"><span>约定发布日期</span><input name="publishDate" type="date"></label>
+        <label class="field full"><span>下一步具体动作 *</span><input name="nextAction" maxlength="150" required placeholder="例如：确认签收，约定试吃反馈日期"></label>
+        <label class="field full"><span>快递单号 / 寄样记录</span><input name="tracking" maxlength="100" placeholder="不要填写完整收货地址"></label>
+        <label class="field full"><span>视频链接</span><input name="videoUrl" type="url" maxlength="500" placeholder="发布后填写，一条记录对应一个视频"></label>
+        <label class="field full"><span>合作条件 / 授权依据 / 备注</span><textarea name="notes" maxlength="1200" rows="3" placeholder="写明计佣口径、费用授权人和记录位置"></textarea></label>
+        <label class="check-field full"><input name="approved" type="checkbox"><span>寄样或付费动作已取得公司授权，并留有记录</span></label>
+        <div id="record-history-wrap" class="field full hidden"><span>最近变更记录</span><div id="record-history" class="history-list"></div></div>
+        <p id="record-error" class="form-error full hidden" role="alert"></p>
+      </div></div>
+      <footer class="modal-footer"><small>保存后同步到云端；同一视频仅登记一次。</small><div><button type="button" class="button secondary" data-close="record-dialog">取消</button><button type="submit" class="button primary">保存合作</button></div></footer>
+    </form>
+  </dialog>
+  <dialog id="confirm-dialog" class="modal-dialog confirm-dialog"><header class="modal-head"><h2 id="confirm-title"></h2><button type="button" data-close="confirm-dialog" class="close-button" aria-label="关闭确认">×</button></header><div class="modal-body"><p id="confirm-description"></p></div><footer class="modal-footer"><button type="button" class="button secondary" data-close="confirm-dialog">取消</button><button id="confirm-submit" type="button" class="button primary">确认</button></footer></dialog>
+  <input id="import-file" class="import-input hidden" type="file" accept="application/json,.json">
+  <div id="toast" class="toast hidden" role="status"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>

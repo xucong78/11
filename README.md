@@ -2,6 +2,14 @@
 
 面向 AI / GPT 科普与交流账号的图文创作网页。从一个具体选题开始，制作可编辑、可下载的知识卡片。
 
+## 手机与电脑云同步仪表盘
+
+新增 **粉商小本**，用于达人筛选、寄样、发布跟进、每日 SOP 和报价测算，适配 iPhone，可添加到主屏幕。合作记录、检查项和报价参数保存到带持久磁盘的服务端数据库，多设备使用同一网址与访问密码。
+
+**[打开一键部署入口](https://render.com/deploy?repo=https://github.com/xucong78/11)** · [四步开通说明](apps/merchant-dashboard/DEPLOY.md) · [功能与开发说明](apps/merchant-dashboard/README.md)
+
+这个链接是 Render 的部署入口，**还不是已上线的仪表盘网址**。使用 GitHub 登录，查看并确认服务与持久磁盘费用后，平台才会生成正式 HTTPS 地址。旧的离线网页仍只保存到当前浏览器；云同步版需要完成部署后使用。
+
 ## 达人带货商务 SOP 与本地工具
 
 新增食品商家商务通用模板：**[下载达人商务工具包](https://github.com/xucong78/11/raw/refs/heads/main/downloads/creator-bd-starter.zip)**。包含 SOP 阅读版、8页 Excel 台账和可本地打开的跟进网页。详细介绍见 [tools/creator-bd](tools/creator-bd/)。不含公司真实数据。
